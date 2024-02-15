@@ -36,7 +36,7 @@ import java.io.File;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import frc.robot.subsystems.Limelight;
-import frc.robot.commands.*;
+
 
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 
@@ -147,9 +147,9 @@ public class RobotContainer
 
       () -> driverXbox.getRightX(), () -> true);
 
-    drivebase.setDefaultCommand(closedFieldRelOperator);
+    // drivebase.setDefaultCommand(!RobotBase.isSimulation() ?  driveFieldOrientedDirectAngle : driveFieldOrientedDirectAngle);
     
-
+    drivebase.setDefaultCommand(closedFieldRelOperator);
 
 
 
@@ -178,13 +178,13 @@ public class RobotContainer
     //                           ));
 //    new JoystickButton(driverXbox, 3).whileTrue(new RepeatCommand(new oInstantCommand(drivebase::lock, drivebase)));
 
-driver_limelightButton.whileTrue(new teleoplimelight(
-      limelight,
-      drivebase,
-      () -> driverXbox.getLeftY(),
-      () -> driverXbox.getLeftX(), 
+// driver_limelightButton.whileTrue(new teleoplimelight(
+//       limelight,
+//       drivebase,
+//       () -> driverXbox.getLeftY(),
+//       () -> driverXbox.getLeftX(), 
 
-      () -> driverXbox.getRightX(), () -> false));
+//       () -> driverXbox.getRightX(), () -> false));
 
 pidButton.whileTrue(drivebase.driveToPose(new Pose2d(new Translation2d(1.844,4.98),Rotation2d.fromDegrees(180))));
 

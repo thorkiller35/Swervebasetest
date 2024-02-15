@@ -74,7 +74,7 @@ public class AbsoluteFieldDrive extends Command
     SmartDashboard.putString("Translation", translation.toString());
 
     // Make the robot move
-    swerve.drive1(translation, desiredSpeeds.omegaRadiansPerSecond, true);
+    swerve.drive(translation, desiredSpeeds.omegaRadiansPerSecond, true);
 
   }
 

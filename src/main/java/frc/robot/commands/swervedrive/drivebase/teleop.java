@@ -65,8 +65,8 @@ public class teleop extends Command
     SmartDashboard.putNumber("omega", angVelocity);
 
     // Drive using raw values.
-    swerve.drive1(new Translation2d(xVelocity * swerve.maximumSpeed / 2, yVelocity * swerve.maximumSpeed / 2),
-                 angVelocity * controller.config.maxAngularVelocity / 2,
+    swerve.drive(new Translation2d(xVelocity * swerve.maximumSpeed/2, yVelocity * swerve.maximumSpeed/2).times(4.1),
+                 angVelocity * controller.config.maxAngularVelocity ,
                  driveMode.getAsBoolean());
   }
 
